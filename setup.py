@@ -5,7 +5,7 @@ h_files = []
 
 pycublasxt = Extension("pycublasxt", sources=["pycublasxt/pycublasxt.cpp"],
                        depends = h_files,
-                       library_dirs = [],
+                       library_dirs = ["./pycublasxt", os.environ['CUDA_ROOT'] + "/lib64"],
                        include_dirs = ["./pycublasxt", os.environ['CUDA_ROOT'] + "/include"],
                        language="c++", libraries=["stdc++", "cublas", "cudart"],
                        extra_compile_args=['-m64'])
